@@ -28,5 +28,6 @@ const BlogPostSchema = new mongoose.schema({
     default: Date.now
   }
 });
+
 const BlogPost = mongoose.model("BlogPost", BlogPostSchema);
 export default BlogPost;
