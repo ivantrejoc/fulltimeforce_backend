@@ -1,10 +1,10 @@
-import createBlogPost from "../controllers/createBlogPost.js";
+import createBlogPost from "../controllers/blogPostControllers/createBlogPost.js";
 import {
   getAllBlogPosts,
   getBlogPostById
-} from "../controllers/getBlogPosts.js";
-import updateBlogPost from "../controllers/updateBlogPost.js";
-import deleteBlogPost from "../controllers/deleteBlogPost.js";
+} from "../controllers/blogPostControllers/getBlogPosts.js";
+import updateBlogPost from "../controllers/blogPostControllers/updateBlogPost.js";
+import deleteBlogPost from "../controllers/blogPostControllers/deleteBlogPost.js";
 
 export const createPostBlogHandler = async (req, res) => {
   try {

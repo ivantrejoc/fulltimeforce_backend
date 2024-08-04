@@ -1,4 +1,4 @@
-import BlogPost from "../models/BlogPost.js";
+import BlogPost from "../../models/BlogPost.js";
 
 const createBlogPost = async (
     title, content, author
