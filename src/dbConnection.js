@@ -5,7 +5,9 @@ dotenv.config();
 const uri = process.env.DATABASE_URI;
 
 const clientOptions = {
-  serverApi: { version: "1", strict: true, deprecationErrors: true }
+  serverApi: { version: "1", strict: true, deprecationErrors: true },
+  serverSelectionTimeoutMS: 30000,
+  socketTimeoutMS: 30000
 };
 
 export async function dbConnection() {
