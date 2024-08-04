@@ -23,7 +23,7 @@ server.use((req, res, next) => {
   next();
 });
 
-server.use(mainRouter);
+server.use("/api", mainRouter);
 server.use(express.json());
 
 server.get("/", (req, res) =>{
