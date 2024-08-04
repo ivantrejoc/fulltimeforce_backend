@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 
 dotenv.config();
-const uri = process.env.DATABASE_URI;
+const uri = process.env.DATABASE_URI.trim();
 
 const clientOptions = {
   serverApi: { version: "1", strict: true, deprecationErrors: true },
