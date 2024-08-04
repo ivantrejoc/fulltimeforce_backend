@@ -5,12 +5,12 @@ const createUser = async (email, userName, password) => {
   try {
     const validateEmail = await User.findOne({ email: email }).exec();
     if (validateEmail) {
-      throw new Error("Email already exists");
+      return { message: "Email already exists" };
     }
 
     const validateUserName = await User.findOne({ username: userName }).exec();
     if (validateUserName) {
-      throw new Error("Username already exists");
+      return { message: "Username already exists" };
     }
 
     const algorithm = "aes-256-cbc";
@@ -29,7 +29,9 @@ const createUser = async (email, userName, password) => {
     const newUser = await new User({
       email,
       username: userName,
-      password: encryptedPassword
+      password: encryptedPassword,
+      encryptionKey: key,
+      initializationVector: initVector
     }).save();
     return newUser;
   } catch (error) {

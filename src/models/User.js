@@ -15,6 +15,14 @@ const UserSchema = new mongoose.Schema(
     password: {
       type: String,
       required: true
+    },
+    encryptionKey: {
+      type: Buffer,
+      required: true
+    },
+    initializationVector: {
+      type: Buffer,
+      required: true
     }
   },
   { timestamps: true }
