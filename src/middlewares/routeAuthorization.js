@@ -1,6 +1,7 @@
 
 
 const routeAuthorization = (req, res, next) => {
+  console.log("REQUEST EN ROUTE AUTH: ", req);
   if (req.isAuthenticated()) {
     return next();
   }
