@@ -13,7 +13,7 @@ import "./middlewares/passport/local-strategy.js"
 const server = express();
 dotenv.config();
 
-server.use(cors({credentials: true, origin: "http://localhost:3000" || "route deploy"}));
+server.use(cors({credentials: true, origin: "http://localhost:3000" || "https://fulltimeforce-frontend.vercel.app/"}));
 server.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 server.use(bodyParser.json({ limit: "50mb" }));
 server.use(cookieParser());
