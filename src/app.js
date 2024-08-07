@@ -13,7 +13,23 @@ import "./middlewares/passport/local-strategy.js"
 const server = express();
 dotenv.config();
 
-server.use(cors({credentials: true, origin: "http://localhost:3000" || "https://fulltimeforce-frontend.vercel.app/"}));
+const allowedOrigins = [
+  "http://localhost:3000", // Local development
+  "https://fulltimeforce-frontend.vercel.app" // Production frontend
+];
+
+server.use(cors({
+  credentials: true,
+  origin: (origin, callback) => {
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+}));
+
+// server.use(cors({credentials: true, origin: "http://localhost:3000" || "https://fulltimeforce-frontend.vercel.app/"}));
 server.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 server.use(bodyParser.json({ limit: "50mb" }));
 server.use(cookieParser());
