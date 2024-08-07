@@ -9,8 +9,7 @@ const authRouter = Router();
 
 authRouter.post("/signin", passport.authenticate("local"), signInUserHandler);
 
-authRouter.get("/status", (req, resp) => {
-  console.log("SESSION STATUS: ", req.session);
+authRouter.get("/status", (req, resp) => { 
   return req.user ? resp.send(req.user) : resp.sendStatus(401);
 });
 
