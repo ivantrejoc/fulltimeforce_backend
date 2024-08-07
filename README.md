@@ -23,68 +23,106 @@ Run the server executing $npm start command.
 ### **We don't recommend use the API as separate to frontend application, however you can send many different CRUD request using the following routes:**
 
 Base route:
+
 http://localhost:3002
 
 createUser (POST):
+
 /api/users/signup
+
 Body Request:
+
 JSON structure:
+
 {
   "email": "pepe25@mail.com",
   "userName": "pepe12",
   "password": "Abcd54321$"
 }
 
+
  signIn (POST):
+
 /api/auth/signin
+
 Body Request:
+
 JSON structure:
+
 {
   "email": "paco@mail.com",
   "password": "Admin54321$"
 }
 
+
 signOut (POST):
+
 /api/auth/signout
+
 No parameters needed
 
+
 createPost (POST): 
+
 /api/posts/create
+
 Body Request:
+
 JSON structure:
+
 {
     "title": "Building RESTful APIs with Node.js and Express",
     "content": "Your post.....",
     "author": "pepe12"
   }
 
+
+
 getAllPosts (GET):
+
 api/posts/list
+
 No parameters needed.
 
+
 getPostById (GET):
+
 api/posts/post/id
+
 Post id required from params
+
 Example: http://localhost:3002/api/posts/post/66aecaeae9cc62f69e613ccd
 
 updatePost (PUT):
+
 api/posts/post/id
+
 Post id required from params
+
 Body request:
+
 JSON structure:
+
 {
   "title": "Exploring the World of Web Development",
   "content": "updated post content...",
   "author": "pepe12"
 }
 
+
 deletePost (DELETE):
+
 api/posts/post/id
+
 Post id required from params
 
+
 signOut (POST): 
+
 /api/auth/signout
+
 NO parameters needed.
+
 
 ***ATTENTION: TO USE ANY POSTS ROUTES YOU MUST CREATE A NEW USER AND SIGN IN INTO API, OTHERWISE YOU CAN'T USE ANY FUNCTION.
 ONCE YOU FINISHED TO USE THE API PLEASE SIGN OUT USING THE CORRESPONDING ROUTE.***
