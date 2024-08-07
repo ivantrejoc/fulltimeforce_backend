@@ -7,34 +7,30 @@ import cors from "cors";
 import session from "express-session";
 import passport from "passport";
 import mainRouter from "./routes/index.js";
-import "./middlewares/passport/local-strategy.js"
-
+import "./middlewares/passport/local-strategy.js";
 
 const server = express();
 dotenv.config();
 
-const allowedOrigins = [
-  "http://localhost:3000", // Local development
-  "https://fulltimeforce-frontend.vercel.app" // Production frontend
-];
-
-server.use(cors({
-  credentials: true,
-  origin: (origin, callback) => {
-    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
+server.use(
+  cors({
+    credentials: true,
+    origin: (origin, callback) => {
+      if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
     }
-  }
-}));
+  })
+);
 
-// server.use(cors({credentials: true, origin: "http://localhost:3000" || "https://fulltimeforce-frontend.vercel.app/"}));
+server.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 server.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 server.use(bodyParser.json({ limit: "50mb" }));
 server.use(cookieParser());
 server.use(morgan("dev"));
-server.use((req, res, next) => {  
+server.use((req, res, next) => {
   res.header(
     "Access-Control-Allow-Headers",
     "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
